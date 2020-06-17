@@ -2,7 +2,7 @@
 Trabalho sobre o COVID-19
 
 Para se executar o codigo, basta que as bibliotecas Pandas e Psycog2 já estejam baixadas.
-Executar o comando:
+\nExecutar o comando:
   python app.py
   
 Existem 3 logins que dão acesso a partes diferentes da aplicação:

@@ -1,8 +1,8 @@
 from connection import Connection
 from relatorios import Relatorios
+from simulacoes import Simulacoes
 import datetime
 import pandas as pd
-
 
 def tela_principal(usuario):
 	print('\nTela principal para o usuario {}'.format(usuario.upper()))
@@ -264,6 +264,65 @@ def overview(connect):
 
 		elif(acao == 'x'):
 			return 1000
+
+def simulacao(connect, usuario):
+	print("Abaixo estao as acoes disponiveis para simulacao.")
+	if (usuario == 'medicina'):
+		print("1. Criar um novo prontuario")
+		print("2. Alterar um prontuario")
+		print("3. Criar um novo atendimento")
+		print("4. Alterar um atendimento")
+		acao = input('O que voce deseja visualizar? ')
+
+		if (acao == 1):
+			Simulacoes.criar_prontuario()
+		elif (acao == 2):
+			Simulacoes.alterar_prontuario()
+		elif (acao == 3):
+			Simulacoes.criar_atendimento()
+		elif (acao == 4):
+			Simulacoes.alterar_atendimento()
+		else:
+			print("Acao nao disponivel. Encerrando sessao.")		
+
+	elif (usuario == 'pesquisa'):
+		print("1. Criar uma nova amostra")
+		print("2. Alterar uma amostra")
+		acao = input('O que voce deseja visualizar? ')
+
+		if (acao == 1):
+			Simulacoes.criar_prontuario()
+		elif (acao == 2):
+			Simulacoes.alterar_prontuario()
+		else:
+			print("Acao nao disponivel. Encerrando sessao.")
+
+	elif (usuario == 'admincovid'):
+		print("1. Criar um novo prontuario")
+		print("2. Alterar um prontuario")
+		print("3. Criar um novo atendimento")
+		print("4. Alterar um atendimento")
+		print("5. Criar uma nova amostra")
+		print("6. Alterar uma amostra")
+		acao = input('O que voce deseja visualizar? ')
+
+		if (acao == 1):
+			Simulacoes.criar_prontuario()
+		elif (acao == 2):
+			Simulacoes.alterar_prontuario()
+		elif (acao == 3):
+			Simulacoes.criar_atendimento()
+		elif (acao == 4):
+			Simulacoes.alterar_atendimento()
+		elif (acao == 5):
+			Simulacoes.criar_prontuario()
+		elif (acao == 6):
+			Simulacoes.alterar_prontuario()
+		else:
+			print("Acao nao disponivel. Encerrando sessao.")	
+		
+	else:
+		print("Usuario nao cadastrado. Tente 'medicina', 'pesquisa' ou 'admincovid'.")
 
 
 def aplicacao():

@@ -1,0 +1,28 @@
+CREATE TEMP TABLE temp_prontuario(
+	id_prontuario INT NOT NULL,
+	id_paciente INT NOT NULL
+);
+INSERT INTO temp_prontuario (id_prontuario,id_paciente) VALUES ({},{});
+
+
+CREATE TEMP TABLE temp_atendimento(
+	id_atendimento INT NOT NULL,
+	data DATE,
+	grau_avaliacao CHAR(1), 
+	observacoes VARCHAR(256),
+	id_medico INT NOT NULL,
+	id_paciente INT NOT NULL,
+	id_prontuario INT NOT NULL
+);
+INSERT INTO temp_atendimento (id_atendimento,data,grau_avaliacao,observacoes,id_medico,id_paciente,id_prontuario) VALUES ({},TO_DATE({}, 'yyyy-mm-dd'),{},{},{},{},{});
+
+CREATE TEMP TABLE temp_amostra(
+	id_amostra  INT NOT NULL,
+	data DATE,
+	resultado CHAR(1) NOT NULL,
+	id_laboratorio  INT NOT NULL,
+	id_paciente  INT NOT NULL,
+	id_pesquisador INT NOT NULL
+);
+
+INSERT INTO temp_amostra (id_amostra,data,resultado,id_laboratorio,id_paciente,id_pesquisador) VALUES ({},TO_DATE({}, 'yyyy-mm-dd'),{},{},{},{});

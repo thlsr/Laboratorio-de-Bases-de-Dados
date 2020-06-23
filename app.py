@@ -266,58 +266,58 @@ def overview(connect):
 			return 1000
 
 def simulacao(connect, usuario):
-	print("Abaixo estao as acoes disponiveis para simulacao.")
+	print("\nAbaixo estao as acoes disponiveis para simulacao.")
 	if (usuario == 'medicina'):
-		print("1. Criar um novo prontuario")
-		print("2. Alterar um prontuario")
-		print("3. Criar um novo atendimento")
-		print("4. Alterar um atendimento")
+		print("(a) Criar um novo prontuario")
+		print("(b) Alterar um prontuario")
+		print("(c) Criar um novo atendimento")
+		print("(d) Alterar um atendimento")
 		acao = input('O que voce deseja visualizar? ')
 
-		if (acao == 1):
-			Simulacoes.criar_prontuario()
-		elif (acao == 2):
-			Simulacoes.alterar_prontuario()
-		elif (acao == 3):
-			Simulacoes.criar_atendimento()
-		elif (acao == 4):
-			Simulacoes.alterar_atendimento()
+		if (acao == 'a'):
+			Simulacoes.criar_prontuario(connect)
+		elif (acao == 'b'):
+			Simulacoes.alterar_prontuario(connect)
+		elif (acao == 'c'):
+			Simulacoes.criar_atendimento(connect)
+		elif (acao == d):
+			Simulacoes.alterar_atendimento(connect)
 		else:
 			print("Acao nao disponivel. Encerrando sessao.")		
 
 	elif (usuario == 'pesquisa'):
-		print("1. Criar uma nova amostra")
-		print("2. Alterar uma amostra")
+		print("(a) Criar uma nova amostra")
+		print("(b) Alterar uma amostra")
 		acao = input('O que voce deseja visualizar? ')
 
-		if (acao == 1):
-			Simulacoes.criar_prontuario()
-		elif (acao == 2):
-			Simulacoes.alterar_prontuario()
+		if (acao == 'a'):
+			Simulacoes.criar_prontuario(connect)
+		elif (acao == 'b'):
+			Simulacoes.alterar_prontuario(connect)
 		else:
 			print("Acao nao disponivel. Encerrando sessao.")
 
 	elif (usuario == 'admincovid'):
-		print("1. Criar um novo prontuario")
-		print("2. Alterar um prontuario")
-		print("3. Criar um novo atendimento")
-		print("4. Alterar um atendimento")
-		print("5. Criar uma nova amostra")
-		print("6. Alterar uma amostra")
+		print("(a) Criar um novo prontuario")
+		print("(b) Alterar um prontuario")
+		print("(c) Criar um novo atendimento")
+		print("(d) Alterar um atendimento")
+		print("(e) Criar uma nova amostra")
+		print("(f) Alterar uma amostra")
 		acao = input('O que voce deseja visualizar? ')
 
-		if (acao == 1):
-			Simulacoes.criar_prontuario()
-		elif (acao == 2):
-			Simulacoes.alterar_prontuario()
-		elif (acao == 3):
-			Simulacoes.criar_atendimento()
-		elif (acao == 4):
-			Simulacoes.alterar_atendimento()
-		elif (acao == 5):
-			Simulacoes.criar_prontuario()
-		elif (acao == 6):
-			Simulacoes.alterar_prontuario()
+		if (acao == 'a'):
+			Simulacoes.criar_prontuario(connect)
+		elif (acao == 'b'):
+			Simulacoes.alterar_prontuario(connect)
+		elif (acao == 'c'):
+			Simulacoes.criar_atendimento(connect)
+		elif (acao == 'd'):
+			Simulacoes.alterar_atendimento(connect)
+		elif (acao == 'e'):
+			Simulacoes.criar_prontuario(connect)
+		elif (acao == 'f'):
+			Simulacoes.alterar_prontuario(connect)
 		else:
 			print("Acao nao disponivel. Encerrando sessao.")	
 		
@@ -342,6 +342,8 @@ def aplicacao():
 			action = tela_principal(current)
 			if(action == 1):
 				relat(conn, current)
+			elif(action == 2):
+				simulacao(conn, current)
 			elif(action == 3):
 				action = overview(conn)
 
@@ -349,6 +351,8 @@ def aplicacao():
 			action = tela_principal(current)
 			if(action == 1):
 				relat(conn, current)
+			elif(action == 2):
+				simulacao(conn, current)
 			elif(action == 3):
 				action = overview(conn)
 
@@ -356,6 +360,8 @@ def aplicacao():
 			action = tela_principal(current)
 			if(action == 1):
 				relat(conn, current)
+			elif(action == 2):
+				simulacao(conn, current)
 			elif(action == 3):
 				action = overview(conn)
 

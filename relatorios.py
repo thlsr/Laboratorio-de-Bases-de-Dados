@@ -9,7 +9,7 @@ class Relatorios:
 			query = '''SELECT * FROM historico_pessoal'''
 			connection.execute(query)
 			fetched = connection.fetchall()
-			dt = pd.DataFrame(fetched, columns=['Nomd do Paciente', 'Idade', 'Sexo', 'Data de nascimento', 'Telefone', 'Endereco', 'Id Hospital'])
+			dt = pd.DataFrame(fetched, columns=['Nome do Paciente', 'Idade', 'Sexo', 'Data de nascimento', 'Telefone', 'Endereco', 'Id Hospital'])
 			print(dt)
 		elif(offset == 1):
 			s = '%'
@@ -17,7 +17,7 @@ class Relatorios:
 			query = '''SELECT * FROM historico_pessoal WHERE nome LIKE '{}';'''.format(nome)
 			connection.execute(query)
 			fetched = connection.fetchall()
-			dt = pd.DataFrame(fetched, columns=['Nomd do Paciente', 'Idade', 'Sexo', 'Data de nascimento', 'Telefone', 'Endereco', 'Id Hospital'])
+			dt = pd.DataFrame(fetched, columns=['Nome do Paciente', 'Idade', 'Sexo', 'Data de nascimento', 'Telefone', 'Endereco', 'Id Hospital'])
 			print(dt)
 			
 

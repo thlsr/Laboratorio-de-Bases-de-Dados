@@ -8,7 +8,7 @@ class Connection:
 		usuario = input('Usuario: ')
 		user = usuario
 		senha = input('Senha: ')
-		self.connection =  psycopg2.connect(user = usuario, password = senha, host = "localhost", port = "5432", database = "postgres")
+		self.connection =  psycopg2.connect(user = usuario, password = senha, host = "localhost", port = "5432", database = "db_covid")
 		self.cursor = self.connection.cursor()
 		print("Conexao iniciada")
 

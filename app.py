@@ -517,81 +517,81 @@ def overview2(connect):
 			return 1000
 
 def simulacao(connect, usuario):
-	print("\nAbaixo estao as acoes disponiveis para simulacao.")
-	if (usuario == 'medicina'):
-		print("(a) Criar um novo prontuario")
-		print("(b) Alterar um prontuario")
-		print("(c) Criar um novo atendimento")
-		print("(d) Alterar um atendimento")
-		print("(e) Visualizar relatorios das simulações")
-		print("(f) Visualizar overview das simulações")
-		acao = input('O que voce deseja visualizar? ')
+	acao = 'z'
+	while(acao != 'x'):
+		print("\nAbaixo estao as acoes disponiveis para simulacao.")
+		if (usuario == 'medicina'):
+			print("(a) Criar um novo prontuario")
+			print("(b) Alterar um prontuario")
+			print("(c) Criar um novo atendimento")
+			print("(d) Alterar um atendimento")
+			print("(e) Visualizar relatorios das simulações")
+			print("(f) Visualizar overview das simulações")
+			print("(x) Voltar ao menu anterior")
+			acao = input('O que voce deseja visualizar? ')
 
-		if (acao == 'a'):
-			Simulacoes.criar_prontuario(connect)
-		elif (acao == 'b'):
-			Simulacoes.alterar_prontuario(connect)
-		elif (acao == 'c'):
-			Simulacoes.criar_atendimento(connect)
-		elif (acao == 'd'):
-			Simulacoes.alterar_atendimento(connect)
-		elif (acao == 'e'):
-			relatSimu(connect,usuario)
-		elif (acao == 'f'):	
-			overview2(connect)
-		else:
-			print("Acao nao disponivel. Encerrando sessao.")		
-
-	elif (usuario == 'pesquisa'):
-		print("(a) Criar uma nova amostra")
-		print("(b) Alterar uma amostra")
-		print("(c) Visualizar relatorios das simulações")
-		print("(d) Visualizar overview das simulações")
-		acao = input('O que voce deseja visualizar? ')
-
-		if (acao == 'a'):
-			Simulacoes.criar_prontuario(connect)
-		elif (acao == 'b'):
-			Simulacoes.alterar_prontuario(connect)
-		elif (acao == 'c'):
-			relatSimu(connect,usuario)
-		elif (acao == 'd'):	
-			overview2(connect)	
-		else:
-			print("Acao nao disponivel. Encerrando sessao.")
-
-	elif (usuario == 'admincovid'):
-		print("(a) Criar um novo prontuario")
-		print("(b) Alterar um prontuario")
-		print("(c) Criar um novo atendimento")
-		print("(d) Alterar um atendimento")
-		print("(e) Criar uma nova amostra")
-		print("(f) Alterar uma amostra")
-		print("(g) Visualizar relatorios das simulações")
-		print("(h) Visualizar overview das simulações")
-		acao = input('O que voce deseja visualizar? ')
-
-		if (acao == 'a'):
-			Simulacoes.criar_prontuario(connect)
-		elif (acao == 'b'):
-			Simulacoes.alterar_prontuario(connect)
-		elif (acao == 'c'):
-			Simulacoes.criar_atendimento(connect)
-		elif (acao == 'd'):
-			Simulacoes.alterar_atendimento(connect)
-		elif (acao == 'e'):
-			Simulacoes.criar_prontuario(connect)
-		elif (acao == 'f'):
-			Simulacoes.alterar_prontuario(connect)
-		elif (acao == 'g'):
-			relatSimu(connect,usuario)
-		elif (acao == 'h'):	
-			overview2(connect)	
-		else:
-			print("Acao nao disponivel. Encerrando sessao.")	
+			if (acao == 'a'):
+				Simulacoes.criar_prontuario(connect)
+			elif (acao == 'b'):
+				Simulacoes.alterar_prontuario(connect)
+			elif (acao == 'c'):
+				Simulacoes.criar_atendimento(connect)
+			elif (acao == 'd'):
+				Simulacoes.alterar_atendimento(connect)
+			elif (acao == 'e'):
+				relatSimu(connect,usuario)
+			elif (acao == 'f'):	
+				overview2(connect)
 		
-	else:
-		print("Usuario nao cadastrado. Tente 'medicina', 'pesquisa' ou 'admincovid'.")
+
+		elif (usuario == 'pesquisa'):
+			print("(a) Criar uma nova amostra")
+			print("(b) Alterar uma amostra")
+			print("(c) Visualizar relatorios das simulações")
+			print("(d) Visualizar overview das simulações")
+			print("(x) Voltar ao menu anterior")
+			acao = input('O que voce deseja visualizar? ')
+
+			if (acao == 'a'):
+				Simulacoes.criar_amostra(connect)
+			elif (acao == 'b'):
+				Simulacoes.alterar_amostra(connect)
+			elif (acao == 'c'):
+				relatSimu(connect,usuario)
+			elif (acao == 'd'):	
+				overview2(connect)	
+
+		elif (usuario == 'admincovid'):
+			print("(a) Criar um novo prontuario")
+			print("(b) Alterar um prontuario")
+			print("(c) Criar um novo atendimento")
+			print("(d) Alterar um atendimento")
+			print("(e) Criar uma nova amostra")
+			print("(f) Alterar uma amostra")
+			print("(g) Visualizar relatorios das simulações")
+			print("(h) Visualizar overview das simulações")
+			print("(x) Voltar ao menu anterior")
+			acao = input('O que voce deseja visualizar? ')
+
+			if (acao == 'a'):
+				Simulacoes.criar_prontuario(connect)
+			elif (acao == 'b'):
+				Simulacoes.alterar_prontuario(connect)
+			elif (acao == 'c'):
+				Simulacoes.criar_atendimento(connect)
+			elif (acao == 'd'):
+				Simulacoes.alterar_atendimento(connect)
+			elif (acao == 'e'):
+				Simulacoes.criar_amostra(connect)
+			elif (acao == 'f'):
+				Simulacoes.alterar_amostra(connect)
+			elif (acao == 'g'):
+				relatSimu(connect,usuario)
+			elif (acao == 'h'):	
+				overview2(connect)		
+			
+		else:
+			print("Usuario nao cadastrado. Tente 'medicina', 'pesquisa' ou 'admincovid'.")
 
 
 def aplicacao():

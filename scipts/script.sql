@@ -33,3 +33,10 @@ GRANT SELECT ON Historico_de_Amostras TO pesquisa;
 
 GRANT SELECT ON Historico_de_Laboratórios TO pesquisa;
 
+GRANT SELECT ON prontuario TO medicina;
+GRANT SELECT ON prontuario TO pesquisa;
+
+GRANT SELECT ON pessoa TO medicina;
+GRANT SELECT ON paciente TO medicina;
+GRANT SELECT ON pessoa TO pesquisa;
+GRANT SELECT ON paciente TO pesquisa;

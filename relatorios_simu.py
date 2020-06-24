@@ -1,15 +1,19 @@
 import pandas as pd
+from temp_views import Temporary_views
+
 pd.set_option('display.width', 100000)
 pd.set_option('display.max_columns', 1000000)
 pd.set_option('display.max_rows', 10000000)
+
 class Relatorios2:
 	def relatorio1(connection, offset, nome):
+		Temporary_views.historico_pessoal2(connection)
 		# Quando offset for 0, sginifica que nao sera aplicado um filtro
 		if(offset == 0):
 			query = '''SELECT * FROM historico_pessoal2'''
 			connection.execute(query)
 			fetched = connection.fetchall()
-			dt = pd.DataFrame(fetched, columns=['Nomd do Paciente', 'Idade', 'Sexo', 'Data de nascimento', 'Telefone', 'Endereco', 'Id Hospital'])
+			dt = pd.DataFrame(fetched, columns=['Nome do Paciente', 'Idade', 'Sexo', 'Data de nascimento', 'Telefone', 'Endereco', 'Id Hospital'])
 			print(dt)
 		elif(offset == 1):
 			s = '%'
@@ -17,11 +21,12 @@ class Relatorios2:
 			query = '''SELECT * FROM historico_pessoal2 WHERE nome LIKE '{}';'''.format(nome)
 			connection.execute(query)
 			fetched = connection.fetchall()
-			dt = pd.DataFrame(fetched, columns=['Nomd do Paciente', 'Idade', 'Sexo', 'Data de nascimento', 'Telefone', 'Endereco', 'Id Hospital'])
+			dt = pd.DataFrame(fetched, columns=['Nome do Paciente', 'Idade', 'Sexo', 'Data de nascimento', 'Telefone', 'Endereco', 'Id Hospital'])
 			print(dt)
 			
 
 	def relatorio2(connection, offset, nome_hospital):
+		Temporary_views.Historico_dos_Hospitais2(connection)
 		# Quando offset for 0, sginifica que nao sera aplicado um filtro
 		if(offset == 0):
 			query = '''SELECT * FROM Historico_dos_Hospitais2'''
@@ -40,6 +45,7 @@ class Relatorios2:
 
 
 	def relatorio3(connection, offset, cidade):
+		Temporary_views.Historico_de_Atendimento_dos_Municipios2(connection)
 		# Quando offset for 0, sginifica que nao sera aplicado um filtro
 		if(offset == 0):
 			query = '''SELECT * FROM Historico_de_Atendimento_dos_Municipios2'''
@@ -58,6 +64,7 @@ class Relatorios2:
 
 
 	def relatorio4(connection, offset, data):
+		Temporary_views.Historico_de_Amostras2(connection)
 		# Quando offset for 0, sginifica que nao sera aplicado um filtro
 		if(offset == 0):
 			query = '''SELECT * FROM Historico_de_Amostras2'''
@@ -75,9 +82,10 @@ class Relatorios2:
 			print(dt)
 
 	def relatorio5(connection, offset, laboratorio):
+		Temporary_views.Historico_de_Laboratorios2(connection)
 		# Quando offset for 0, sginifica que nao sera aplicado um filtro
 		if(offset == 0):
-			query = '''SELECT * FROM Historico_de_Laboratórios2'''
+			query = '''SELECT * FROM Historico_de_Laboratorios2'''
 			connection.execute(query)
 			fetched = connection.fetchall()
 			dt = pd.DataFrame(fetched, columns=['Nome do laboratorio', 'Quantidade de pesquisadores', 'Endereco', 'Quantidade de amostras recebidas'])
@@ -85,7 +93,7 @@ class Relatorios2:
 		elif(offset == 1):
 			s = '%'
 			laboratorio = f'{s}{laboratorio}{s}'
-			query = '''SELECT * FROM Historico_de_Laboratórios2 WHERE nome_laboratório LIKE '{}';'''.format(laboratorio)
+			query = '''SELECT * FROM Historico_de_Laboratorios2 WHERE nome_laboratorio LIKE '{}';'''.format(laboratorio)
 			connection.execute(query)
 			fetched = connection.fetchall()
 			dt = pd.DataFrame(fetched, columns=['Nome do laboratorio', 'Quantidade de pesquisadores', 'Endereco', 'Quantidade de amostras recebidas'])
@@ -93,6 +101,7 @@ class Relatorios2:
 
 
 	def relatorio6(connection, offset, pesquisador):
+		Temporary_views.Historico_de_Pesquisadores2(connection)
 		# Quando offset for 0, sginifica que nao sera aplicado um filtro
 		if(offset == 0):
 			query = '''SELECT * FROM Historico_de_Pesquisadores2'''

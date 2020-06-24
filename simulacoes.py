@@ -3,14 +3,19 @@ class Simulacoes:
         id_paciente = input("Insira o ID do paciente: ")
         id_prontuario = input("Insira o ID do prontuario: ")
 
-        create_query = '''CREATE TEMP TABLE temp_prontuario(
-                        id_prontuario INT NOT NULL, id_paciente INT NOT NULL);'''
+
         insert_query = "INSERT INTO temp_prontuario (id_prontuario,id_paciente) VALUES ({},{});".format(id_prontuario, id_paciente)
         query = "SELECT * FROM temp_prontuario"
-
+        connection.execute(insert_query); 
 
     def alterar_prontuario(connection):
-        return None
+        id_prontuario = input("Insira o ID do prontuario para alteração: ")
+        id_paciente = input("Insira o ID do novo paciente: ")
+        update_query = '''UPDATE  temp_prontuario 
+                          SET  id_paciente={}
+                          WHERE id_prontuario={}'''.format(id_paciente,id_prontuario)
+        connection.execute(update_query); 
+
     def criar_atendimento(connection):
         id_atendimento = input("Insira o ID do atendimento: ")
         data = input("Insira a data no formato 'yyyy-mm-dd': ")
@@ -20,16 +25,26 @@ class Simulacoes:
         id_paciente = input("Insira o ID do paciente: ")
         id_prontuario = input("Insira o ID do prontuario: ")
 
-        create_query = '''CREATE TEMP TABLE temp_atendimento(
-                        id_atendimento INT NOT NULL,data DATE,grau_avaliacao CHAR(1), observacoes VARCHAR(256),
-                        id_medico INT NOT NULL,id_paciente INT NOT NULL,id_prontuario INT NOT NULL);'''
+        
         insert_query = '''INSERT INTO temp_atendimento 
                         (id_atendimento,data,grau_avaliacao,observacoes,id_medico,id_paciente,id_prontuario) VALUES 
                         ({},TO_DATE({}, 'yyyy-mm-dd'),{},{},{},{},{});'''.format(id_atendimento, data, grau_avaliacao, observacoes, id_medico, id_paciente, id_prontuario)
         query = "SELECT * FROM temp_atendimento"
+        connection.execute(insert_query) 
 
     def alterar_atendimento(connection):
-        return None
+        id_atendimento = input("Insira o ID do atendimento para alteração: ")
+        data = input("Insira a nova data no formato 'yyyy-mm-dd': ")
+        grau_avaliacao = input("Insira o novo grau de avaliacao: ")
+        observacoes = input("Insira as novas observacoes: ")
+        id_medico = input("Insira o novo ID do medico: ")
+        id_paciente = input("Insira o novo ID do paciente: ")
+        id_prontuario = input("Insira o novo ID do prontuario: ")
+        update_query ='''UPDATE  temp_atendimento 
+                          SET  data={},grau_avaliacao='{}',observacoes='{}',id_medico={},id_paciente={},id_prontuario={}
+                          WHERE id_atendimento={}'''.format(data, grau_avaliacao, observacoes, id_medico, id_paciente, id_prontuario,id_atendimento)
+        connection.execute(update_query)                 
+
     def criar_amostra(connection):
         id_amostra = input("Insira o ID da amostra: ")
         data = input("Insira a data no formato 'yyyy-mm-dd': ")
@@ -38,14 +53,21 @@ class Simulacoes:
         id_paciente = input("Insira o ID do paciente: ")
         id_pesquisador = input("Insira o ID do pesquisador: ")
 
-        create_query = '''CREATE TEMP TABLE temp_amostra(
-	                    id_amostra  INT NOT NULL, data DATE, resultado CHAR(1) NOT NULL,
-	                    id_laboratorio  INT NOT NULL, id_paciente  INT NOT NULL, id_pesquisador INT NOT NULL);'''
+        
         insert_query = '''INSERT INTO temp_amostra 
                         (id_amostra,data,resultado,id_laboratorio,id_paciente,id_pesquisador) VALUES 
                         ({},TO_DATE({}, 'yyyy-mm-dd'),{},{},{},{});'''.format(id_amostra, data, resultado, id_laboratorio, id_paciente, id_pesquisador)
         query = "SELECT * FROM temp_amostra"
-
+        connection.execute(insert_query)
 
     def alterar_amostra(connection):
-        return None
+        id_amostra = input("Insira o ID da amostra para alteração: ")
+        data = input("Insira a nova data no formato 'yyyy-mm-dd': ")
+        resultado = input("Insira o novo resultado: ")
+        id_laboratorio = input("Insira o novo ID do laboratorio: ")
+        id_paciente = input("Insira o novo ID do paciente: ")
+        id_pesquisador = input("Insira o novo ID do pesquisador: ")
+        update_query ='''UPDATE  temp_amostra 
+                          SET  data='{}',resultado={},id_laboratorio={},id_paciente={},id_pesquisador={}
+                          WHERE id_amostra={}'''.format(data, resultado, id_laboratorio, id_paciente, id_pesquisador,id_amostra)
+        connection.execute(update_query)

@@ -5,6 +5,12 @@ from simulacoes import Simulacoes
 import datetime
 import pandas as pd
 
+'''
+Este arquivo contem toda a estruturacao dos menus e chamadas de funcao e execucao de querys na base de dados
+Algumas consultas e execucoes na base sao realizadas aqui mesmo para facilicar o compreensao
+'''
+
+# Printa o menu inicial para todos os usuarios
 def tela_principal(usuario):
 	print('\nTela principal para o usuario {}'.format(usuario.upper()))
 	print('1 - Relatorios')
@@ -16,6 +22,8 @@ def tela_principal(usuario):
 		print('Encerrando sessao...')
 	return int(acao)
 
+
+# Correponde aos relatorios do sistema autorizados a cada tipo de usuario
 def relat(connect, usuario):
 	acao = 'z'
 	while(acao != 'x'):
@@ -172,7 +180,7 @@ def relat(connect, usuario):
 					Relatorios.relatorio5(connect, 0, 'none')
 
 
-
+# Correponde ao relatorios permitidos a cada tipo de usuario incluindo-se as simulacoes feitas por eles
 def relatSimu(connect, usuario):
 	acao = 'z'
 	while(acao != 'x'):
@@ -329,8 +337,7 @@ def relatSimu(connect, usuario):
 					Relatorios2.relatorio5(connect, 0, 'none')
 
 
-
-
+# overview correponde ao dashboard, ou visualizacao geral do sistema, para os usuarios
 def overview(connect):
 	acao = 'z'
 	while(acao != 'x'):
@@ -424,6 +431,7 @@ def overview(connect):
 			return 1000
 
 
+# Overview2 corresponde à tela de dashboard incluindo-se os dados das simulacoes
 def overview2(connect):
 	acao = 'z'
 	while(acao != 'x'):
@@ -516,6 +524,8 @@ def overview2(connect):
 		elif(acao == 'x'):
 			return 1000
 
+
+# Estruturacao e chamadas de funcoes e consultas para a realizacao de simulacoes por parte dos usuarios
 def simulacao(connect, usuario):
 	acao = 'z'
 	while(acao != 'x'):
@@ -593,7 +603,9 @@ def simulacao(connect, usuario):
 		else:
 			print("Usuario nao cadastrado. Tente 'medicina', 'pesquisa' ou 'admincovid'.")
 
-
+# Este é a aplicacao principal que organiza e direciona, depedendo do usuario logado, as funcoes e opcoes existentes
+# A conexao com a base é feita nesta funcao e logo que é verificado e salvo o login do usuario, criamos as tabelas temporarias
+# para cada usuario caso ele opte por realizar algum tipo de simulacao co os dados da base
 def aplicacao():
 	conn = Connection()
 

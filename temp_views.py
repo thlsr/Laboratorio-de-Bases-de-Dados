@@ -1,8 +1,10 @@
-#/*VIEW 1
-  #HISTORICO_PESSOAL*/
-
+'''
+Arquivo que cria views temporarias para que os usuarios consigam ter o overview da base de dados incluido suas simulacoes
+'''
 class Temporary_views:
 	def historico_pessoal2(connection):
+	#/*VIEW 1
+	  #HISTORICO_PESSOAL*/
 		query = '''CREATE TEMP VIEW historico_pessoal2(nome, idade, sexo, 
 						data_nasc, tel, endereco, hospital) AS
 

@@ -1,7 +1,14 @@
 import psycopg2
 import datetime
 
+'''
+Aqui esta presente o codigo que inicia a conexao com o banco de dados.
+Optamos por utilizar um arquivo separado para deixar mais organizado e intuitivo o codigo da aplicacao
 
+## IMPORTANTE: 
+	Na funcao def __init__ deve-se verificar se a porta e o nome da base estao 
+	devidamente conficurados conforme foi avisado no relatorio do trabalho
+'''
 class Connection:
 	def __init__(self):
 		print('Faça o login para iniciar...')

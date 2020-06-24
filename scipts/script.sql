@@ -1,3 +1,7 @@
+-- Este é um dos codigos que, conforme mensionado no relatorio, precisam ser executados antes da aplicacao para a criacao da tabela que 
+-- salva todos os logins feitos pelos usuarios, a criacao dos usuarios e suas senhas e as permissoes de acesso para cada tipo de usuario
+
+
 CREATE TABLE logs(
 	quem VARCHAR(15) NOT NULL,
 	horario VARCHAR(30) NOT NULL

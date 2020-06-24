@@ -1,6 +1,8 @@
+-- Este é um dos codigos que, conforme mensionado no relatorio, precisam ser executados antes da aplicacao para a criacao das views que permitirao acesso
+-- aos usuarios a dados gerais do banco
+
 /*VIEW 1
   HISTORICO_PESSOAL*/
-
 CREATE OR REPLACE VIEW Historico_Pessoal(nome, idade, sexo, 
 				data_nasc, tel, endereco, hospital) AS
 

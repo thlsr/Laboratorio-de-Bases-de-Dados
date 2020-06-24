@@ -5,6 +5,10 @@ pd.set_option('display.width', 100000)
 pd.set_option('display.max_columns', 1000000)
 pd.set_option('display.max_rows', 10000000)
 
+
+'''
+Este arquivo contem a classe Relatorios2 que corresponde à geracao de relatorio incluindo-se as simulacoes feitas pelos usuarios
+'''
 class Relatorios2:
 	def relatorio1(connection, offset, nome):
 		Temporary_views.historico_pessoal2(connection)

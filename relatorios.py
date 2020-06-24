@@ -2,6 +2,11 @@ import pandas as pd
 pd.set_option('display.width', 100000)
 pd.set_option('display.max_columns', 1000000)
 pd.set_option('display.max_rows', 10000000)
+
+
+'''
+Neste arquivo estao presentes as consultas para a geracao de relatorios da base
+'''
 class Relatorios:
 	def relatorio1(connection, offset, nome):
 		# Quando offset for 0, sginifica que nao sera aplicado um filtro
@@ -73,6 +78,7 @@ class Relatorios:
 			fetched = connection.fetchall()
 			dt = pd.DataFrame(fetched, columns=['Nome do paciente', 'Idade', 'Sexo', 'Endereco', 'Data da amostra', 'Resultado', 'Laboratorio'])
 			print(dt)
+
 
 	def relatorio5(connection, offset, laboratorio):
 		# Quando offset for 0, sginifica que nao sera aplicado um filtro
